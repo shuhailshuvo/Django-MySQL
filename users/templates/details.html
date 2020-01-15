@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}" />
+<div class="back">
+  {% load static %}
+  <a href="/users/list"><img src="{% static 'images/back.png' %}"/></a>
+</div>
+<div class="logout">
+  {% load static %}
+  <a href="logout"><img src="{% static 'images/logout.png' %}"/></a>
+</div>
+<div>
+  <h1>User Details</h1>
+  {% for data in user %}
+  <p>{{data}}</p>
+  {% endfor %}
+</div>

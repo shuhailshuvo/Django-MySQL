@@ -1,0 +1,62 @@
+a,
+a:before {
+  transition: all 0.4s;
+}
+div {
+  max-width: 500px;
+  margin: 2em auto;
+}
+div:hover a {
+  opacity: 0.4;
+}
+a {
+  position: relative;
+  display: block;
+  max-width: 500px;
+  padding: 20px 20px 20px 45px;
+  box-sizing: border-box;
+  color: #777;
+  background: #fafafa;
+  text-decoration: none;
+  font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+}
+a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 20px;
+  background: #7f8c9a;
+}
+a:nth-child(even):before {
+  background: #34495e;
+}
+a + a {
+  border-top: 2px solid #ededed;
+}
+div a:hover,
+div a:focus {
+  opacity: 1;
+  padding-left: 55px;
+}
+div a:hover:before,
+div a:focus:before {
+  width: 30px;
+}
+.logout {
+  position: fixed;
+  top: 0;
+  right: 20px;
+}
+.logout img {
+  width: 20px;
+}
+.back {
+  position: fixed;
+  top: 0;
+  left: 20px;
+}
+.back img {
+  width: 20px;
+}

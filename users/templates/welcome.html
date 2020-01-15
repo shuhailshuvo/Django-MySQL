@@ -1,0 +1,64 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+{% load static %}
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript">
+  $("document").ready(function() {
+    $(".img__btn").click(function() {
+      $(".cont").toggleClass("s--signup");
+    });
+  });
+</script>
+
+<div class="cont">
+  <div class="form sign-in">
+    <h2>Welcome</h2>
+    <form action="/users/login" method="post">
+      {% if error %}
+      <p class="error">{{error}}</p>
+      {% endif %} {% csrf_token %}
+      <label>
+        <span>Email</span>
+        <input name="email" type="email" />
+      </label>
+      <label>
+        <span>Password</span>
+        <input name="password" type="password" />
+      </label>
+      <p class="forgot-pass">Forgot password?</p>
+      <button type="submit" class="submit {{color}}">Sign In</button>
+    </form>
+  </div>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>New here?</h2>
+        <p>Sign up and get surprised!</p>
+      </div>
+      <div class="img__text m--in">
+        <h2>One of us?</h2>
+        <p>If you already has an account, just sign in!</p>
+      </div>
+      <div class="img__btn">
+        <span class="m--up">Sign Up</span>
+        <span class="m--in">Sign In</span>
+      </div>
+    </div>
+    <div class="form sign-up">
+      <h2>Join Us</h2>
+      <form action="/users/signup" method="post">
+        {% csrf_token %} {{ form }}
+        <button type="submit" class="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="dropup">
+  <button class="dropbtn {{color}}"></button>
+  <div class="dropup-content">
+    <a href="/users/color/blueBg" class="blueBg"></a>
+    <a href="/users/color/defaultBg" class="defaultBg"></a>
+    <a href="/users/color/redBg" class="redBg"></a>
+    <a href="/users/color/greenBg" class="greenBg"></a>
+  </div>
+</div>
